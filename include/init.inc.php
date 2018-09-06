@@ -2,9 +2,9 @@
 // Connexion à la BDD en PDO
 // *************************
 $pdo = new PDO(
-	'mysql:host=localhost;dbname=location',
+	'mysql:host=localhost;dbname=veville',
 	'root',
-	'delpiero92',
+	'root',
 	array(
 	PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING,
 	PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
