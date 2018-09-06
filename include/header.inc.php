@@ -1,3 +1,8 @@
+<?php
+require_once('include/init.inc.php');
+require_once('include/fonctions.inc.php');
+?>
+
 <!DOCTYPE html>
 <head>
 

@@ -22,12 +22,12 @@
         else
             return true;
     }
+
     function internauteEstConnecteEtEstAdmin(){
         if(isset($_SESSION['membre']) && $_SESSION['membre']['statut'] == 1)
             return true;
         else
             return false;
     }
-
    
 ?>

@@ -1,6 +1,7 @@
 <?php
 	require_once("include/header.inc.php");
-	?>
+	$resultat = $pdo->query("SELECT * FROM vehicule");
+?>
 
 <!-- Banner
 ================================================== -->
@@ -74,13 +75,14 @@
 <!-- Categories Carousel -->
 <div class="fullwidth-carousel-container margin-top-25">
 	<div class="fullwidth-slick-carousel category-carousel">
-
-		<!-- Item -->
-		<div class="fw-carousel-item">
+		<?php
+			while ($vehicule = $resultat->fetch()) {
+		?>
+	    <div class="fw-carousel-item">
 			<div class="category-box-container">
-				<a href="listings-half-screen-map-grid-1.html" class="category-box" data-background-image="images/clio.jpg">
+				<a href="listings-half-screen-map-grid-1.html" class="category-box" data-background-image="<?php echo $vehicule['photo']; ?>">
 					<div class="category-box-content">
-						<h3>Economique</h3>
+						<h3><?php echo $vehicule['titre']; ?></h3>
 						<span>Rajouter nb voiture</span>
 					</div>
 					<span class="category-box-btn">Découvrir</span>
@@ -88,47 +90,11 @@
 			</div>
 		</div>
 
-		<!-- Item -->
-		<div class="fw-carousel-item">
-			<div class="category-box-container">
-				<a href="listings-half-screen-map-grid-1.html" class="category-box" data-background-image="images/mercedes.jpg">
-					<div class="category-box-content">
-						<h3>Premium</h3>
-						<span>Rajouter nb voiture</span>
-					</div>
-					<span class="category-box-btn">Découvrir</span>
-				</a>
-			</div>
-		</div>
-
-		<!-- Item -->
-		<div class="fw-carousel-item">
-			<div class="category-box-container">
-				<a href="listings-half-screen-map-list.html" class="category-box" data-background-image="images/porsche.jpg">
-					<div class="category-box-content">
-						<h3>Luxe</h3>
-						<span>Rajouter nb voiture</span>
-					</div>
-					<span class="category-box-btn">Découvrir</span>
-				</a>
-			</div>
-		</div>
-
-		<!-- Item -->
-		<div class="fw-carousel-item">
-			<div class="category-box-container">
-				<a href="listings-half-screen-map-list.html" class="category-box" data-background-image="images/ppartner.jpg">
-					<div class="category-box-content">
-						<h3>Utilitaire</h3>
-						<span>Rajouter nb voiture</span>
-					</div>
-					<span class="category-box-btn">Découvrir</span>
-				</a>
-			</div>
-		</div>
+		<?php } ?>
 	</div>
 </div>
 <!-- Categories Carousel / End -->
 
 <?php
-	require_once('include/footer.inc.php');?>
+	require_once('include/footer.inc.php');
+?>
